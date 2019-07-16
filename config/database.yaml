@@ -1,0 +1,15 @@
+# database:
+
+default: default
+
+databases:
+  default:
+    connection: sqlite
+
+connections:
+
+  sqlite:
+    driver: Spiral\Database\Driver\SQLite\SQLiteDriver
+    connection: sqlite:data/database.sqlite
+    username: ''
+    password: ''

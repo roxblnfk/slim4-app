@@ -1,0 +1,16 @@
+# application:
+
+debug: true
+applications:
+
+  console:
+    containers: [database, migration]
+    cache: var/chache/console
+
+  web:
+    domains: ['*']
+    containers: [web-app, database, render, repository]
+    routes: []
+    middlewares: []
+    templates: []
+    cache: var/chache/www

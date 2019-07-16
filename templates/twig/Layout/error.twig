@@ -1,0 +1,17 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ title ?? error.getMessage() }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+        <article>
+            <h2>Error {{ error.getCode() }}</h2>
+            <div>{{ error.getMessage() }}</div>
+            {% block content %}{% endblock %}
+        </article>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+# migration
+
+directory: src/Console/Migration
+entity: src/Entity
+table: migration
+safe: false

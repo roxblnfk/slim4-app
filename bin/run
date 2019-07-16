@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+use App\Config\ApplicationListConfiguration;
+use App\Console\Command;
+use DI\ContainerBuilder;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+
+chdir(dirname(__DIR__));
+$srcDir = realpath('./src');
+require_once 'vendor/autoload.php';
+
+$builder = new ContainerBuilder();
+
+$application = new Application();
+$appsConf = new ApplicationListConfiguration(new Processor(), 'config/application.yaml');
+$appConf = $appsConf->applications['console'];
+$builder->addDefinitions($appConf->getContainerDefinitions($srcDir . '/Container'));
+$container = $builder->build();
+
+$commandMap = [
+    'migrate:generate' => Command\MigrateGenerateCommand::class,
+    'migrate:up'       => Command\MigrateUpCommand::class,
+];
+
+$application->setCommandLoader(new ContainerCommandLoader($container, $commandMap));
+
+$application->run();
