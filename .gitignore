@@ -1,0 +1,10 @@
+/vendor/*
+/.idea/*
+
+*.git
+*.log
+*.zip
+
+/public/images/*
+
+!*.htaccess
