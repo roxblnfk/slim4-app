@@ -13,7 +13,7 @@
 PHP 7.3 required
 
 ```bash
-composer create-project --prefer-dist roxblnfk/slim4-basic-app my-app
+composer create-project --prefer-dist roxblnfk/slim4-app my-app
 composer update
 ```
 
@@ -37,5 +37,6 @@ Migrations config file: `/config/migrations.yaml`
 # TODO
 
 - Routes
+- Cache
 - Tests
 - CS
